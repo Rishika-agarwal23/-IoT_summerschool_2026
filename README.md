@@ -1,2 +1,1 @@
-# IoT
-IIT Jammu - IoT Projects Repo 
+Mortal Combat game
