@@ -1,1 +1,46 @@
+// SPI Protocol
 
+//Master Arduino
+#include <SPI.h>
+
+void setup()
+{
+  SPI.begin();
+  pinMode(10, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(10, LOW);
+  SPI.transfer('HI');
+  digitalWrite(10, HIGH);
+  delay(1000);
+}
+
+// Slave Arduino
+#include <SPI.h>
+
+volatile char data;
+
+ISR(SPI_STC_vect)
+{
+  data = SPDR;
+}
+
+void setup()
+{
+  Serial.begin(9600);
+
+  pinMode(MISO, OUTPUT);
+
+  SPCR |= _BV(SPE);
+
+  SPI.attachInterrupt();
+}
+
+void loop()
+{
+  Serial.println(data);
+
+  delay(500);
+}
