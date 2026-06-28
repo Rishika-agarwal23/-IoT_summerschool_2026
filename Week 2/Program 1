@@ -1,1 +1,41 @@
+// I2C Protocol
 
+// Master Arduino
+#include <Wire.h>
+
+void setup()
+{
+  Wire.begin();
+}
+
+void loop()
+{
+  Wire.beginTransmission(8); 
+  Wire.write("Nice to meet you !! :]");
+  Wire.endTransmission();
+
+  delay(1000);
+}
+
+// Slave Arduino
+#include <Wire.h>
+
+void getData(int n)
+{
+  while (Wire.available())
+  {
+    char data = Wire.read();
+    Serial.print(data);
+  }
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  Wire.begin(8);
+  Wire.onReceive(getData);
+}
+
+void loop()
+{
+}
