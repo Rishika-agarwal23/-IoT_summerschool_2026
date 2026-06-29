@@ -1,0 +1,33 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  lcd.begin(16, 2);
+}
+
+void loop() {
+
+  int light = analogRead(A0);
+
+  lcd.clear();
+
+  if (light > 700) {
+    lcd.setCursor(0,0);
+    lcd.print("BRIGHT :)");
+  }
+  else if (light >400 && light<700) {
+    lcd.setCursor(0,0);
+    lcd.print("NORMAL :|");
+  }
+  else {
+    lcd.setCursor(0,0);
+    lcd.print("DARK :(");
+  }
+
+  lcd.setCursor(0,1);
+  lcd.print("LDR=");
+  lcd.print(light);
+
+  delay(500);
+}
