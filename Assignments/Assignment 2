@@ -1,0 +1,60 @@
+Assignment 2
+
+Ques 1   I will choose ESp 32 for smart irrigation system because data is to be pushed to mobile apps every second.ESP has in built BLE/ WiFi, so it would be better for connecting to mobile and push data.
+
+Ques 2   500 sensors are to be connected across 2 km:
+	      LoRa - 2-15km works on low power
+	      WiFi - 50-100m works on high power
+	      BLE - 10m works on low power
+	      MQTT is an application layer messaging protocol
+We should use LoRa because it has a range of 2km.
+
+Ques 3  Problem with temperature sensor:
+Power supply can be checked using a multimeter.
+Swap the sensor.
+Check the conversion formula.
+Check for polarity and loose wiring.
+
+Ques 4  To make esp32 work as a weather station on a battery for   6 months we will choose Li -ion / LiFe battery. Use sleep timers to save battery when not needed. Consider esp now protocols as it does not need WiFi or BLE.
+
+Ques 5 Automatic braking system in a vehicle requires almost zero delay. We should use CAN, it allows multiple electronic devices to connect on a 2 wire bus. Any node can transmit data in this connection.
+
+Ques 6  Place the sensor in the middle of the room. Make it away from walls, windows and doors. Any equipment which releases heat etc too. 
+
+Ques 7  Analog sensors can be better than digital sensors when we need filtration and need better resolution without steps.
+
+Ques 9  Possible attacks on IoT devices through WiFi, eavesdropping, unauthorized command injection, tamping via compromised OTA channel.
+Solutions:
+Use HTTPS and MQTT
+IoT device on isolated network from personal device.
+WPA 2/ WPA 3 with strong unique phrase
+Unique passwords and usernames
+Device verifies a cryptographic signature before flashing, preventing malicious firmware injection.
+
+Ques 10  When we need to connect multiple sensors and actuators to the esp 32 there will be conflict within the GPIO pins, time delay causing complexions and loss of data.
+We would also require different addresses for communication.
+
+The problem can be solved by using millis() and isolating the analog sensor (to protect from noise).
+
+Ques 11  An esp 32 uploads data every minute will receive no internet for next 12 hours so what we can do is save the data in flash memory and upload it to esp whenever it receives the net again.
+
+Ques 12  To make an IoT device work without human intervention we would like to protect it from any blockages such as dust, moisture. Also use powerful batteries like Li-ion.
+For the software we can use sleep mode and delays().
+
+Ques 13  An IoT system can be smart without being intelligent.
+
+Smart means the device can be connected to the internet. Eg smart fan which connects to the phone.
+
+Intelligence is something which is capable of learning and training itself to predict the outcome of  a data.
+
+A device can be both smart and intelligent.
+
+Ques 14  Polling: The CPU repeatedly checks the reading at PIN in a loop. It helps in not loosing any data, but wastes CPU cycles.
+
+Interrupts: The CPU only reads the PIN when an event occurs. The CPU can sleep or do other work while an event takes place, making the system optimised. 
+Interrupts can be used for IoT systems where detection is done at certain occasions only and power can  be saved.
+
+Ques 15 Trade Offs in gesture kombat:
+Hardware cost is high , 3 ESP and 2 IMU are required.
+Responsiveness and delays can be an issue while imu senses a gesture and esp 32 processes it.
+OLED only at centre may make it difficult for both the players to view the actual game and health bar.
