@@ -1,0 +1,30 @@
+Line Follower Robot Using Arduino (Work in Progress)
+
+This project is an implementation of a Line Follower Robot using an Arduino Uno. The robot is designed to detect and follow a black line on a light-colored surface using IR sensors and control two DC motors through an L293D motor driver.
+
+Note: This project is currently incomplete and represents the hardware setup and initial stages of development. Motor control logic and line-following algorithms are still under implementation.
+
+Features
+Arduino-based line follower robot.
+Uses two IR sensors for line detection.
+Controls two DC motors through an L293D motor driver.
+Differential drive mechanism for steering.
+Modular design for future enhancements.
+
+Working Principle
+Two IR sensors are placed underneath the robot to detect the line on the ground.
+The sensors continuously monitor the surface and send digital signals to the Arduino.
+Based on the sensor readings, the Arduino determines whether the robot should:
+Move forward
+Turn left
+Turn right
+Stop (if no line is detected)
+The Arduino controls the DC motors through the L293D motor driver to perform the required movement.
+The process repeats continuously, allowing the robot to follow the path.
+Current Status
+Hardware connections completed.
+IR sensors interfaced with Arduino.
+L293D motor driver connected.
+Dual DC motor setup completed.
+Basic software under development.
+Line-following logic yet to be fully implemented and tested.
