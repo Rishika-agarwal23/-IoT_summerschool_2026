@@ -1,0 +1,12 @@
+# Tone Function on Buzzer
+
+This project demonstrates the use of a piezo buzzer to generate sound using the `tone()` function. Different frequencies can be played to produce audible tones, making it useful for alarms, notifications, and simple melodies.
+
+## Components Used
+- Arduino/ESP32
+- Piezo Buzzer
+- Breadboard & Jumper Wires
+
+## Features
+- Generates tones at specified frequencies.
+- Demonstrates use of the `tone()` function.
