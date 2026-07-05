@@ -1,0 +1,24 @@
+LDR-Based Light Intensity Monitor with LCD (Arduino)
+
+This project demonstrates how to measure ambient light intensity using an LDR (Light Dependent Resistor) and display the results on a 16×2 LCD using an Arduino. The system continuously reads the light level through an analog input and categorizes the environment as Bright, Normal, or Dark based on predefined threshold values.
+
+The measured sensor value is displayed on the LCD along with the corresponding light condition, providing a simple real-time light monitoring system.
+
+Features
+Reads ambient light intensity using an LDR.
+Displays the light level on a 16×2 LCD.
+Classifies the environment as Bright, Normal, or Dark.
+Updates readings continuously in real time.
+Demonstrates analog sensor interfacing and LCD communication.
+
+Working Principle
+The LDR forms a voltage divider with a resistor, producing a voltage proportional to the surrounding light intensity.
+The Arduino reads this voltage using the analog input pin (A0) through the analogRead() function.
+Based on the sensor value:
+Values above 700 are displayed as BRIGHT.
+Values between 400 and 700 are displayed as NORMAL.
+Values below 400 are displayed as DARK.
+The LCD displays:
+The current light condition on the first row.
+The raw LDR sensor value on the second row.
+The display is refreshed every 500 milliseconds to provide real-time updates.
