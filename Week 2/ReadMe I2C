@@ -1,0 +1,51 @@
+I²C Communication Between Two Arduino Boards
+
+This project demonstrates communication between two Arduino boards using the Inter-Integrated Circuit (I²C) protocol. One Arduino is configured as the Master, which initiates communication and sends data, while the second Arduino acts as the Slave, receiving and processing the transmitted data.
+
+The project introduces the fundamentals of multi-device communication over a shared bus using only two signal lines.
+
+Features
+Communication between two Arduino boards using the I²C protocol.
+Master-Slave architecture.
+Data transmission over SDA and SCL lines.
+Demonstrates serial communication between microcontrollers.
+Uses the Arduino Wire library for I²C communication.
+Components Used
+2 × Arduino Uno (or compatible boards)
+Breadboard
+Jumper wires
+USB cables
+Working Principle
+One Arduino is configured as the Master and the other as the Slave.
+The Master initiates communication and sends data to the Slave using the I²C bus.
+Communication takes place over two shared lines:
+SDA (Serial Data) – Transfers data.
+SCL (Serial Clock) – Synchronizes communication.
+The Slave receives the transmitted data and performs the required operation.
+Communication continues whenever the Master sends new data.
+
+This project demonstrates how multiple microcontrollers can communicate efficiently using the I²C protocol.
+
+SPI Communication Between Two Arduino Boards
+
+This project demonstrates communication between two Arduino boards using the Serial Peripheral Interface (SPI) protocol. One Arduino operates as the Master, controlling the communication, while the second Arduino functions as the Slave, receiving data transmitted by the Master.
+
+SPI provides high-speed, full-duplex communication using dedicated data and clock lines.
+
+Features
+Communication between two Arduino boards using SPI.
+Master-Slave architecture.
+High-speed synchronous data transfer.
+Full-duplex communication.
+Uses the Arduino SPI library.
+
+Working Principle
+One Arduino is configured as the SPI Master, while the second acts as the SPI Slave.
+The Master initiates communication by selecting the Slave using the SS (Slave Select) pin.
+Data is transmitted through the following SPI lines:
+MOSI (Master Out Slave In) – Sends data from Master to Slave.
+MISO (Master In Slave Out) – Sends data from Slave to Master.
+SCK (Serial Clock) – Synchronizes data transfer.
+SS (Slave Select) – Enables communication with the Slave.
+The Slave receives the transmitted data and processes it accordingly.
+Communication continues as long as the Master controls the SPI bus.
