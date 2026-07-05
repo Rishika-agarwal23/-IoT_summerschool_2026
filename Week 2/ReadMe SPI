@@ -1,0 +1,23 @@
+SPI Communication Between Two Arduino Boards
+
+This project demonstrates communication between two Arduino boards using the Serial Peripheral Interface (SPI) protocol. One Arduino is configured as the Master, which initiates communication and transmits data, while the second Arduino acts as the Slave, receiving and processing the transmitted data.
+
+The project introduces the fundamentals of synchronous serial communication using dedicated data and clock lines for fast and reliable data transfer.
+
+Features
+Communication between two Arduino boards using the SPI protocol.
+Master-Slave architecture.
+High-speed synchronous data transmission.
+Demonstrates full-duplex serial communication.
+Uses the Arduino SPI library.
+
+Working Principle
+One Arduino is configured as the SPI Master, while the second Arduino acts as the SPI Slave.
+The Master initiates communication by selecting the Slave through the SS (Slave Select) pin.
+Data is exchanged using four communication lines:
+MOSI (Master Out Slave In) – Transfers data from the Master to the Slave.
+MISO (Master In Slave Out) – Transfers data from the Slave to the Master.
+SCK (Serial Clock) – Synchronizes data transmission.
+SS (Slave Select) – Enables communication with the selected Slave.
+The Slave receives the transmitted data and performs the required operation.
+Communication continues whenever the Master sends new data over the SPI bus.
