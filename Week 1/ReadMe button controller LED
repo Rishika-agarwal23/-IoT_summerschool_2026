@@ -1,0 +1,15 @@
+# Button Controlled LED
+
+This project demonstrates how to control an LED using a push button with an Arduino/ESP32. Pressing the button changes the LED state, introducing the basics of digital input and output in embedded systems.
+
+## Components Used
+- Arduino/ESP32
+- Push Button
+- LED
+- Resistor(s)
+- Breadboard & Jumper Wires
+
+## Features
+- Reads button input using a digital pin.
+- Turns the LED ON/OFF based on button state.
+- Demonstrates basic GPIO programming.
