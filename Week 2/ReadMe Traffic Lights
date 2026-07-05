@@ -1,0 +1,35 @@
+Traffic Light Control System with Pedestrian Switch (Arduino)
+
+This project implements a simple traffic light controller using an Arduino. The system simulates a real-world traffic signal with Red, Yellow, and Green LEDs for vehicles, along with a pedestrian push button that allows pedestrians to safely request a crossing.
+
+When the pedestrian button is pressed, the controller completes the current traffic cycle, safely stops vehicle traffic by turning the vehicle light red, and provides a designated crossing period before returning to normal operation.
+
+Features
+Simulates a standard traffic light sequence.
+Pedestrian crossing request using a push button.
+Safe transition from vehicle green to pedestrian crossing.
+Prevents abrupt signal changes.
+Demonstrates digital input and output handling in Arduino.
+Easily expandable to include pedestrian LEDs, buzzers, or countdown timers.
+Components Used
+Arduino Uno (or compatible board)
+3 LEDs
+Red
+Yellow
+Green
+3 × 220 Ω resistors
+Push Button
+10 kΩ pull-down resistor (if internal pull-up is not used)
+Breadboard
+Jumper wires
+USB cable
+Working Principle
+The traffic signal follows a normal sequence:
+Green → Yellow → Red → Green
+During normal operation, the Arduino continuously checks the pedestrian push button.
+When the button is pressed:
+A pedestrian crossing request is registered.
+The current traffic phase is allowed to finish safely.
+The vehicle signal changes to Red.
+Pedestrians are given sufficient time to cross.
+After the crossing interval, the system resumes the normal traffic light cycle.
