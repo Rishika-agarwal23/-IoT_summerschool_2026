@@ -1,0 +1,162 @@
+Assignment 3 
+
+Ques 36  
+Feature
+MQTT
+HTTP
+Architecture Pattern
+Publish/Subscribe
+Client/Server
+Data Transfer Model
+Sends data through a broker
+Request and Response
+Power Consumption
+Low
+High
+Latency
+Low 
+Higher
+Use in IoT
+Very good for sensors and IoT devices
+Better for websites and web applications
+Security
+Uses TLS/SSL and username/password
+Uses HTTPS (TLS/SSL)
+
+
+Ques 37  Wi-Fi-enabled IoT devices such as the ESP32 are vulnerable to several wireless attacks if not configured securely. One common attack vector involves WPA2 vulnerabilities. Although WPA2 provides strong encryption, attacks such as weak password brute-forcing, dictionary attacks, and the historical KRACK (Key Reinstallation Attack) vulnerability have shown that improperly configured or unpatched devices can be compromised. Another common threat is the Evil Twin attack, where an attacker creates a fake Wi-Fi access point with the same SSID as a legitimate network. IoT devices may unknowingly connect to the fake network, allowing attackers to intercept data, steal credentials, or inject malicious traffic.
+
+To improve ESP32 Wi-Fi security, developers should use WPA3 whenever supported, as it offers stronger authentication and protection against offline password-guessing attacks. When communicating with cloud services, the ESP32 should use TLS encryption with certificate pinning, which verifies the server's identity by matching its certificate or public key with a trusted copy stored on the device. This helps prevent man-in-the-middle attacks. Regular firmware updates, disabling unnecessary services, and using strong, unique Wi-Fi passwords further improve security.
+
+Ques 38   LoRa & LPWAN – Long Range IoT
+LPWAN (Low Power Wide Area Network) is a wireless communication to connect IoT devices over long distances while consuming less power. It is for battery-powered sensors that transmit small amounts of data infrequently, making it suitable for agriculture, environmental monitoring.
+
+LoRa (Long Range) achieves long communication distances by using Chirp Spread Spectrum (CSS) modulation and different Spreading Factors. A high spreading factor spreads each bit over a long period, increasing receiver sensitivity and allowing signals to travel farther, at the cost of a lower data rate, enabling communication over several kilometers while operating on batteries for years.
+
+Comparison:
+
+LoRa: Long range (2–15 km), very low power, low data rate, ideal for outdoor sensor networks.
+Zigbee: Short range (10–100 m), low power, mesh networking, suitable for home automation.
+Z-Wave: Short range (30–100 m), low power, operates on sub-GHz frequencies, mainly used for smart home devices with better interference resistance than Zigbee.
+
+Ques 39  IoT Gateway is a device that acts as a bridge between IoT sensor nodes and the cloud. It collects data from multiple sensors, performs basic processing, enhances security, and forwards the data to cloud platforms.
+
+IoT Sensor Nodes → Gateway       →     Cloud           →             User Application
+I2C,UART,SPI        Wifi, Ethernet     MQTT, HTTP, TLS      HTTPS, Rest API
+
+Ques 40  Quality of Service (QoS) determines how reliably a message is delivered between the publisher and subscriber.
+QoS 0: At most once
+Message is sent only once.
+No acknowledgement is received.
+Fastest but messages may be lost.
+
+QoS 1:  At least once
+Sender waits for an acknowledgment (ACK).
+If no ACK is received, the message is retransmitted.
+Guarantees delivery, but duplicate messages are possible.
+
+QoS 2:  Exactly once
+Uses a four-step handshake.
+Ensures the message is delivered exactly once.
+Most reliable but has the highest communication overhead and latency.
+
+For a water level monitoring system, QoS 1 is the best choice according to me because 
+The reading for the monitoring system is important and should reliably reach the cloud.
+
+Ques 49  Top 5 Security Vulnerabilities: 
+1. Hardcoded Wi-Fi SSID and Password
+The Wi-Fi network name (SSID) and password are directly written into the source code.
+Anyone with access to the code can see the credentials.
+If the code is uploaded to GitHub, the credentials become publicly accessible.
+Attackers can connect to the Wi-Fi network and access other devices.
+What we can do is store credentials in a separate config.h file.
+Add config.h to .gitignore.
+
+2. Using HTTP Instead of HTTPS
+Data travels without encryption. Attackers can intercept or modify sensor data.
+We can use HTTPS instead of HTTP and validate the server certificate.
+
+3. Public MQTT Broker Without Authentication
+Sensor data is published to a public MQTT broker without a username or password.
+Anyone can subscribe to the topic and read sensor data and data integrity cannot be guaranteed.
+Use a private MQTT broker. Enable username/password authentication.
+
+4. No Validation of Incoming Commands
+The device accepts every incoming MQTT message or HTTP command without checking its contents.
+Malicious users can send unexpected commands thus device behavior can be manipulated.
+Accept only predefined commands to be on the safer side.
+
+5. No Encryption or Secure Communication
+Commands sent to the IoT device can be altered and sensitive information may be exposed.
+Use TLS/SSL encryption/Use HTTPS for web communication.
+
+
+
+Ques 50  Smart City IoT Proposal for Jammu
+The Government of Jammu & Kashmir aims to transform Jammu into a Smart City by improving public infrastructure through technology. IoT can help monitor city resources in real time, reduce operational costs, and improve the quality of life for citizens.Smart Street Lighting, Smart Traffic Flow Monitoring, and Air Quality Monitoring. Each system uses sensors to collect data, communicates with the cloud using wireless protocols, and displays real-time information on a centralized dashboard.
+
+1. Smart Street Lighting System
+Reduce electricity consumption by automatically controlling street lights based on the presence of vehicles or pedestrians.
+
+   Work Flow
+       LDR + PIR Sensor
+        ↓
+      ESP32
+        ↓
+   Wi-Fi (MQTT)
+        ↓
+ Cloud Platform
+        ↓
+ Monitoring Dashboard
+
+During daytime, the LDR detects sufficient sunlight, keeping street lights OFF.
+At night, if the PIR sensor detects movement, the ESP32 switches the street light ON.
+If no movement is detected for a specified duration, the brightness is reduced or the light is turned OFF to save electricity.
+Data regarding light status and energy usage is continuously uploaded to the cloud.
+
+2. Smart Traffic Flow Monitoring
+
+Monitor traffic density at major intersections and optimize traffic signal timings to reduce congestion.
+
+Work Flow
+Ultrasonic Sensor
+        ↓
+      ESP32
+        ↓
+   Wi-Fi (HTTP/MQTT)
+        ↓
+ Cloud Database
+        ↓
+ Traffic Dashboard
+
+The ultrasonic sensor continuously measures the distance to nearby vehicles.
+The ESP32 estimates traffic density by counting detected vehicles over time.
+Data is transmitted to the cloud.
+Traffic management authorities can monitor congestion in real time.
+Signal timings can be automatically adjusted depending on traffic density.
+
+3. Air Quality Monitoring System
+Monitor pollution levels across different locations in Jammu and alert authorities when air quality becomes unhealthy.
+
+Work Flow
+MQ-135 + DHT11
+        ↓
+      ESP32
+        ↓
+   Wi-Fi (MQTT)
+        ↓
+ Cloud Platform
+        ↓
+ Air Quality Dashboard
+
+The MQ-135 continuously measures harmful gases in the atmosphere.
+The DHT11 records environmental temperature and humidity.
+The ESP32 uploads sensor readings to the cloud every few minutes.
+Authorities can monitor pollution levels in real time and issue alerts when pollution exceeds safe limits.
+
+Conclusion
+Smart street lighting can significantly reduce electricity consumption, traffic monitoring can minimize congestion and improve road safety, and air quality monitoring can help protect public health through continuous environmental surveillance. By integrating ESP32-based sensor nodes with cloud platforms and real-time dashboards, city administrators can make informed decisions based on live data. These solutions are cost-effective, easy to deploy, and can be expanded to cover additional smart city services in the future, making them ideal for the Jammu Smart City initiative.
+
+
+
+
